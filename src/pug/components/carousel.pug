@@ -1,0 +1,99 @@
+include ./title
+include ./icon
+include ./product
+
+mixin carousel(src)
+	- var id = Math.round(Math.random()*10000)
+	.carousel
+		.carousel.slide(data-bs-ride=`carousel`, id=`carouselIndicators${id}`)
+			.carousel-indicators
+				- for (var i = 0; i < src.length; i++)
+					if (i === 0)
+						button(data-bs-target=`#carouselIndicators${id}`, data-bs-slide-to=i, class="active", aria-current="true", aria-label=`Slide ${i + 1}`)
+					else					
+						button(data-bs-target=`#carouselIndicators${id}`, data-bs-slide-to=i, aria-label=`Slide ${i + 1}`)
+			.carousel-inner
+				- for (var i = 0; i < src.length; i++) 
+					if (i === 0)
+						.carousel-item.active
+							img(src=src[0], class="d-block w-100", alt="...")
+					else
+						.carousel-item
+							img(src=src[i], class="d-block w-100", alt="...")
+			button.carousel-control-prev(data-bs-target=`#carouselIndicators${id}`, data-bs-slide="prev")
+				span.carousel-control-prev-icon(aria-hidden="true")
+			button.carousel-control-next(data-bs-target=`#carouselIndicators${id}`, data-bs-slide="next")
+				span.carousel-control-next-icon(aria-hidden="true")
+
+mixin carouselProducts(title, products, productsInPage, size)
+	- var id = Math.round(Math.random()*10000)
+	- var pages = Math.ceil(products.length / productsInPage)
+	if (title != "")
+		+title(title)
+	div(style="height:1rem")
+	.carousel
+		.carousel.slide(data-bs-ride="carousel", id=`carouselIndicators${id}`)
+			.carousel-inner
+				- for (var i = 0; i < pages; i++)
+					- var productsInPage = (i === (pages - 1)) ? (products.length - i*productsInPage) : productsInPage
+						div(class= (i === 0) ? "carousel-item active" : "carousel-item")
+							div.crl-item-products.d-block.w-100
+								.row
+									if (size === "small")
+										- for (var j = 0; j < productsInPage; j++)
+											.col-lg-12.px-3
+												+product(products[j].src, products[j].name, products[j].status, products[j].priceNew, products[j].priceOld, products[j].rate, products[j].size)
+									else if (size === "medium")
+										- for (var j = 0; j < productsInPage; j++)
+											.col-lg-4.col-md-6.px-3.pb-2
+												+product(products[j].src, products[j].name, products[j].status, products[j].priceNew, products[j].priceOld, products[j].rate, products[j].size)
+									else 
+										- for (var j = 0; j < productsInPage; j++)
+											.col-lg-3.col-md-6.px-3.pb-2
+												+product(products[j].src, products[j].name, products[j].status, products[j].priceNew, products[j].priceOld, products[j].rate, products[j].size)
+			if (pages != 1)
+				button(class=`carousel-control-prev crl-btn-products-prev center`,data-bs-target=`#carouselIndicators${id}`, data-bs-slide="prev")
+					span(style="color:black") 
+						+icon('fas fa-angle-left')
+				button(class=`carousel-control-next crl-btn-products-next center`, data-bs-target=`#carouselIndicators${id}`, data-bs-slide="next")
+					span(style="color:black") 
+						+icon('fas fa-angle-right')
+mixin carouselProductsIndicatorsTab(ids)
+	- var idCarousel = Math.round(Math.random()*10000)
+	.carousel
+		.carousel.slide(data-bs-ride=`carousel`, id=`carouselIndicators${idCarousel}`, data-bs-interval="false")
+			.carousel-indicators.tab
+				each val, index in ids
+					if (index === 0)
+						div(id=val, data-bs-target=`#carouselIndicators${idCarousel}`, data-bs-slide-to=index, class="active", aria-current="true", aria-label=`Slide ${index + 1}`)
+							+icon('fas fa-th')
+					else
+						div(id=val, data-bs-target=`#carouselIndicators${idCarousel}`, data-bs-slide-to=index, aria-label=`Slide ${index + 1}`)
+							+icon('fas fa-th-list')
+			.carousel-inner
+				.carousel-item.active
+					block itemActive
+				.carousel-item
+					block item
+mixin carouselImg()
+	//- - var idImgs = shuffle[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+	- var ids = ["/assets/images/spx2-1.png","/assets/images/spx2-3.png","/assets/images/spx2-2.png","/assets/images/spx2-7.png","/assets/images/spx2-8.png"]
+	- var idCarousel = Math.round(Math.random()*10000)
+	.carousel
+		.carousel.slide(data-bs-ride=`carousel`, id=`carouselIndicators${idCarousel}`, data-bs-interval="false")
+			.carousel-inner
+				each val, index in ids 
+					if (index === 0 )	
+						.carousel-item.active
+							img(src=val, class="d-block w-100", alt="...")
+					else	
+						.carousel-item
+							img(src=val, class="d-block w-100", alt="...")
+			.carousel-indicators.images
+				each val, index in ids
+					if (index === 0)
+						div(data-bs-target=`#carouselIndicators${idCarousel}`, data-bs-slide-to=index, class="active", aria-current="true", aria-label=`Slide ${index + 1}`)
+							img(src=val, alt="meow")
+					else
+						div(data-bs-target=`#carouselIndicators${idCarousel}`, data-bs-slide-to=index, aria-label=`Slide ${index + 1}`)
+							img(src=val, alt="meow")

@@ -1,0 +1,22 @@
+.title {
+	padding: 0 12px;
+	margin-bottom: 20px;
+	&__wrapper {
+		font-size: 16px;
+		line-height: 40px;
+		color: $green-100;
+		font-weight: 700;
+		border-bottom: 2px solid $white-250;
+		p {
+			display: inline-block;
+			position: relative;
+			&::after {
+				@include absolute("", "", -2px, 0);
+				content: "";
+				border-bottom: 2px solid $green-100;
+				z-index: 10;
+				width: 100%;
+			}
+		}
+	}
+}

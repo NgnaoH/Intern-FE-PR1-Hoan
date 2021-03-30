@@ -1,0 +1,323 @@
+@mixin title() {
+    font-size: 16px;
+    padding: 4px 0;
+    color: $grey-400;
+    margin-bottom: 0;
+    @content;
+}
+@mixin rate() {
+    padding: 8px 0;
+    color: $yellow-100;
+    @content;
+}
+@mixin price() {
+    &__new {
+        color: $red-200;
+        font-size: 16px;
+        padding-right: 8px;
+    }
+    &__old {
+        color: $grey-200;
+        text-decoration: line-through;
+        font-size: 12px;
+    }
+    @content;
+}
+@mixin btn-wrapper() {
+    .btn-buy {
+        padding: 0 28px;
+        margin-right: 8px;
+        border-radius: 999px;
+        background: $green-200;
+        color: $white-100;
+        height: 48px;
+        font-size: 14px;
+        line-height: 0;
+        border: 1px solid $green-100;
+        transition: all 0.2s linear;
+        &:hover {
+            background: transparent;
+            backdrop-filter: blur(4px);
+            color: $green-100;
+        }
+    }
+    .btn-see {
+        margin-right: 4px;
+        display: inline-flex;
+        text-decoration: none;
+    }
+    .btn-see,
+    .btn-like {
+        width: 48px;
+        height: 48px;
+        border-radius: 999px;
+        background: $white-100;
+        transition: all 0.2s ease-in;
+        border: 1px solid $white-100;
+        &:hover {
+            background: transparent;
+            backdrop-filter: blur(4px);
+            color: $white-100;
+        }
+    }
+    @content;
+}
+
+.product {
+    cursor: pointer;
+    box-shadow: 0 0 2px 2px $white-250;
+    @include Arial-font;
+    &__image {
+        position: relative;
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+        .status {
+            @include absolute(3%, "", "", 3%);
+            width: 48px;
+            height: 48px;
+            border-radius: 999px;
+            color: $white-100;
+            text-transform: uppercase;
+            font-size: 12px;
+            line-height: 0;
+            z-index: 100;
+        }
+        .btn-wrapper {
+            @include absolute(0, "", "", 0);
+            height: calc(100% - 2px);
+            width: 100%;
+            background: rgba($color: $white-100, $alpha: 0.2);
+            opacity: 0;
+            transition: all 0.2s ease-in;
+            z-index: 10;
+            @include btn-wrapper();
+            .btn-see {
+                color: $green-100;
+            }
+        }
+        &:hover > .btn-wrapper {
+            opacity: 1;
+            transition: all 0.2s ease-in;
+        }
+    }
+    &__description {
+        padding: 20px 0;
+        .title {
+            @include title();
+        }
+        .rate {
+            @include rate();
+        }
+        .price {
+            @include price();
+        }
+    }
+}
+
+.product-small {
+    @include flex("", "", center);
+    box-shadow: none;
+    overflow: hidden;
+    padding: 20px;
+    width: 100%;
+    border-top: 1px solid $white-250;
+    border-right: 1px solid $white-250;
+    border-left: 1px solid $white-250;
+    &:last-child {
+        border-bottom: 1px solid $white-250;
+    }
+    &__image {
+        height: 100%;
+        max-width: 80px;
+        min-width: 80px;
+        overflow: hidden;
+        margin-right: 12px;
+        img {
+        }
+        .btn-wrapper {
+            display: none;
+        }
+    }
+    &__description {
+        padding: 0;
+        width: 100%;
+        @include flex(column, "", start);
+        .title {
+            @include flex("", start, "");
+            width: 100%;
+            p {
+                width: 90%;
+            }
+        }
+        .rate {
+            font-size: 12px;
+        }
+    }
+}
+
+.product-vertical {
+    @include flex("", "", "");
+    border: 1px solid $white-250;
+    height: 240px;
+    overflow: hidden;
+    &__image {
+        background: $white-250;
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    &__description {
+        padding: 3%;
+        @include flex(column, space-between, "");
+        .title {
+            @include title() {
+                font-size: 18px;
+                color: $dark-300;
+            }
+        }
+        .rate {
+            @include rate() {
+                font-size: 12px;
+            }
+        }
+        .content {
+            color: $grey-400;
+            line-height: 20px;
+            font-size: 12px;
+        }
+        .price {
+            margin: auto 0;
+            padding: 8px 0;
+            @include price() {
+            }
+        }
+        .btn-wrapper {
+            margin-top: auto;
+            @include btn-wrapper();
+            .btn-see,
+            .btn-like {
+                border: 1px solid $white-250;
+                i {
+                    font-size: 12px;
+                    color: $dark-300;
+                }
+            }
+            .btn-see {
+                &:hover {
+                    background: $green-100;
+                    i {
+                        color: $white-100;
+                    }
+                }
+            }
+            .btn-like {
+                &:hover {
+                    background: $red-100;
+                    i {
+                        color: $white-100;
+                    }
+                }
+            }
+        }
+    }
+}
+.product-details {
+    @include flex("", "", "");
+    &__image {
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    &__description {
+        padding: 20px 40px;
+        @include flex(column, "", "");
+        .title {
+            @include title() {
+                font-size: 18px;
+                color: $dark-300;
+            }
+        }
+        .rate {
+            padding: 20px 0 !important;
+            @include rate() {
+                font-size: 12px;
+            }
+        }
+        .price {
+            padding: 8px 0 20px;
+            border-bottom: 1px solid $white-250;
+            @include flex("", "", flex-end);
+            @include price() {
+                &__new {
+                    padding-right: 16px;
+                    font-weight: 600;
+                }
+            }
+        }
+        .content {
+            padding: 20px 0;
+            border-bottom: 1px solid $white-250;
+            color: $grey-400;
+            line-height: 20px;
+            font-size: 12px;
+        }
+        .quantity {
+            padding: 20px 0;
+            border-bottom: 1px solid $white-250;
+            @include flex("", "", center);
+            p {
+                color: $grey-400;
+                padding-right: 16px;
+            }
+            .decrease,
+            .number,
+            .increase {
+                width: 40px;
+                height: 40px;
+                border: 1px solid $white-250;
+                cursor: pointer;
+            }
+            .number {
+                padding: 0 32px;
+                margin: 0 12px;
+            }
+        }
+        .btn-wrapper {
+            padding: 20px 0 8px;
+            @include btn-wrapper();
+            .btn-buy {
+                margin-bottom: 12px;
+            }
+            .btn-see,
+            .btn-like {
+                border: 1px solid $white-250;
+                i {
+                    font-size: 12px;
+                    color: $dark-300;
+                }
+            }
+            .btn-see {
+                &:hover {
+                    background: $green-100;
+                    i {
+                        color: $white-100;
+                    }
+                }
+            }
+            .btn-like {
+                &:hover {
+                    background: $red-100;
+                    i {
+                        color: $white-100;
+                    }
+                }
+            }
+        }
+    }
+}

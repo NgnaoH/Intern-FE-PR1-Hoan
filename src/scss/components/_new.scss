@@ -1,0 +1,80 @@
+.newMedium {
+    overflow: hidden;
+    &__img {
+        cursor: pointer;
+        position: relative;
+        padding-bottom: 56.2%;
+        background-color: rgba(244, 244, 244, 0);
+        transition: all 0.2s ease-in;
+        img {
+            position: absolute;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        &:hover {
+            background-color: rgba(153, 153, 153, 0.15);
+        }
+    }
+    &__content {
+        line-height: 20px;
+        .date {
+            padding: 12px 0 12px 4px;
+            font-style: italic;
+            color: $grey-200;
+            font-weight: 400;
+            font-size: 12px;
+        }
+        .title {
+            font-size: 14px;
+            color: $green-100;
+            font-weight: 700;
+            padding-left: 4px;
+            margin-bottom: 12px;
+        }
+        .content {
+            font-size: 12px;
+            color: $grey-200;
+            padding-left: 4px;
+        }
+        .read-more {
+            cursor: pointer;
+            font-size: 12px;
+            color: $green-400;
+            font-weight: 400;
+            font-style: italic;
+            padding: 12px 0 12px 4px;
+            a {
+                &:hover {
+                    color: $grey-200;
+                }
+            }
+        }
+    }
+}
+.newLarge {
+    &__title {
+        font-size: 1.125rem;
+        color: $grey-400;
+        line-height: 20px;
+    }
+    &__img {
+        width: 100%;
+        overflow: hidden;
+        margin: 0;
+        padding-top: 42.85% !important;
+        position: relative;
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    &__content {
+        line-height: 1.125rem;
+        font-size: .75rem;
+    }
+}

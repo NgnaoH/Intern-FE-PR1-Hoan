@@ -1,0 +1,52 @@
+extends ../base/base
+include ../components/breadcrumb
+include ../components/carousel
+include ../components/product
+
+block pages
+	include ../data/data
+	- var productsNew = data.products.productsNew
+	- var breadCrumItems = data.detailsProductPage.breadCrumItems
+	- 
+		var pages = {
+			title: "Chi tiết sản phẩm",
+			link: "/details-product.html"
+		}
+block layouts
+	section.details-product
+		.container.py-5.pt-0
+			.px-3
+				+breadcrumb(breadCrumItems)
+				.py-5.pt-0
+					+productDetails("4.5", "5.120.000", "3.200.000")
+						+carouselImg()
+				.tab
+					input#detailsProductInfo(type="radio", name="tab", checked)
+					.detailsProductInfo
+						p Tên phổ thông: Dạ lam, Huỳnh tinh cảnh, Dong vằn. 
+						p Tên khoa học: Calathea zebrina
+						p Họ thực vật: Marantaceae (Củ dong).
+						p Chiều cao: 0,8-1,2m
+						p Cây dạ lam có nguồn gốc từ Brazil, được du nhập và phân bố rộng khắp ở Việt Nam.
+						p Cây mọc thành bụi thưa, thân vươn thẳng với chiều cao cây trung bình từ 0,8-1,2m. Lá hình trứng, mép lá nguyên, gân lá nổi rõ, phiến rộng khoảng từ 15-20cm. Lá có màu xanh đậm ở mặt trên, quanh gân lá có màu trắng sữa; mặt dưới lá nhạt màu hơn. Lá cây dạ lam mọc cách, cuống lá dài khi rụng để lại các khía màu nâu nhạt.
+							br 
+							| Cây dạ lam thuộc loại cây chịu bóng bán phần hoặc hoàn toàn, nhu cầu nước tương đối cao. Cây được nhân giống từ tách bụi, cây mọc khỏe, tốc độ sinh trưởng nhanh với sức sống mạnh. Đây là loại cây có dáng đẹp, màu lá mướt mát, tươi khỏe, cây rất phù hợp trồng chậu trang trí nội thất-văn phòng.
+							br 
+							| Ngoài ra, cây còn có đặc điểm lọc khí, làm xanh mát môi trường, giúp điều hòa không khí, đặc biệt tốt cho những môi trường thường xuyên sử dụng các loại máy móc tảng nhiệt. Có thể bày cây ở hành lang hay ở giữa sảnh, đặt ở cạnh bàn làm việc hoặc trang trí các góc phòng có diện tích trung bình.
+					input#detailsProductRating(type="radio", name="tab")
+					.detailsProductRating 
+						p rating
+					input#detailsProductTag(type="radio", name="tab")
+					.detailsProductTag 
+						p tag
+					label.info.text-ellipsis(for="detailsProductInfo") Thông tin sản phẩm
+					label.rating.text-ellipsis(for="detailsProductRating") Khách hàng đánh giá
+					label.tag.text-ellipsis(for="detailsProductTag") Thẻ tag
+		.container
+			.row
+				.col-12.d-lg-block.d-none
+					+carouselProducts('Sản phẩm cùng loại', productsNew, 4, "large")
+				.col-12.d-lg-none.d-none.d-md-block
+					+carouselProducts('Sản phẩm cùng loại', productsNew, 2, "large")
+				.col-12.d-md-none.d-block
+					+carouselProducts('Sản phẩm cùng loại', productsNew, 1, "large")

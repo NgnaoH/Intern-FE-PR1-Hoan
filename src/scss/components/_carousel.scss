@@ -1,0 +1,17 @@
+.carousel {
+    .crl-btn-products-prev,
+    .crl-btn-products-next {
+        width: 24px;
+        height: 24px;
+        border: 1px solid $grey-100;
+        border-radius: 999px;
+        top: -70px;
+    }
+    .crl-btn-products-next {
+        right: 12px;
+    }
+    .crl-btn-products-prev {
+        right: calc(12px + 28px);
+        left: auto;
+    }
+}

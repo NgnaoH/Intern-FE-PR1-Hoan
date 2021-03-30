@@ -1,0 +1,91 @@
+extends ../base/base
+include ../components/breadcrumb
+include ../components/title
+include ../components/icon
+
+block pages
+	include ../data/data
+	- var breadCrumItems = data.cartPage.breadCrumItems
+	- 
+		var pages = {
+			title: "Giỏ hàng",
+			link: "/cart.html"
+		}
+block layouts
+	section.cart-page
+		.container.py-5.pt-0
+			+breadcrumb(breadCrumItems)
+			+title('Giỏ hàng')(class='px-0 py-5 pt-0', style="text-transform: uppercase")
+			.table.py-3.pt-0
+				.row.bg-green-200.text-white-100.tr
+					.col-2.center.th
+						p Hình ảnh
+					.col-3.center.th
+						p Tên sản phẩm
+					.col-2.center.th
+						p  Đơn giá
+					.col-2.center.th
+						p Số lượng
+					.col-2.center.th
+						p Thành tiền
+					.col-1.center.th
+						p Xóa
+				.row.tr.text-grey-100
+					.col-2.center.th
+						img(src="../assets/images/spx2-1.png")
+					.col-3.center.th
+						p.text-green-100.text-center Cây văn phòng
+					.col-2.center.th.text-center
+						p 270.000 đ
+					.col-2.center.th
+						.quantity.center 1
+					.col-2.center.th.text-center
+						div 270.000 đ
+					.col-1.center.th
+						+icon('fas fa-trash-alt')
+				.row.tr.text-grey-100
+					.col-2.center.th
+						img(src="../assets/images/spx2-1.png")
+					.col-3.center.th
+						p.text-green-100.text-center Cây văn phòng
+					.col-2.center.th.text-center
+						p 270.000 đ
+					.col-2.center.th
+						.quantity.center 1
+					.col-2.center.th.text-center
+						div 270.000 đ
+					.col-1.center.th
+						+icon('fas fa-trash-alt')
+				.row.tr.text-grey-100
+					.col-2.center.th
+						img(src="../assets/images/spx2-1.png")
+					.col-3.center.th
+						p.text-green-100.text-center Cây văn phòng
+					.col-2.center.th.text-center
+						p 270.000 đ
+					.col-2.center.th
+						.quantity.center 1
+					.col-2.center.th.text-center
+						div 270.000 đ
+					.col-1.center.th
+						+icon('fas fa-trash-alt')
+			.group-btn
+				button(type="button", class="btn-white") Hủy đơn hàng
+				button(type="button", class="btn-green") Tiếp tục mua
+			.total.py-5
+				.total__product.text-green-100.row
+					.col-md-4.col-8.text-center
+						p Tổng tiền (Chưa thuế)
+					.col-md-2.col-4.center
+						p 270.000 đ
+				.total__tax.text-green-100.row
+					.col-md-4.col-8.text-center
+						p Thuế (VAT 10%)
+					.col-md-2.col-4.center
+						p 27.000 đ
+				.total__pay.text-white-100.row
+					.col-md-4.col-8.bg-green-200.text-center
+						p Tổng phải thanh toán
+					.col-md-2.col-4.bg-green-200.center
+						p 297.000 đ
+				button.my-4 Thanh toán

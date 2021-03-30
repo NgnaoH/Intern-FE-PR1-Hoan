@@ -1,0 +1,49 @@
+.footer {
+    background: $dark-200;
+    @include Arial-font;
+    color: $grey-100;
+    &__top {
+        padding: 22px 0;
+        border-bottom: 1px solid $grey-300;
+        li {
+            transition: all 0.2s ease-in;
+            &:hover {
+                color: $white-100;
+            }
+        }
+        p {
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            line-height: 25px;
+        }
+        @include search(100%, 48px, 0, $green-100, 1, none);
+    }
+    &__body {
+        padding: 40px 0;
+        border-bottom: 1px solid $grey-300;
+        @include logo($grey-100);
+        .content,
+        .phone,
+        .email {
+            line-height: 30px;
+            padding: 8px 64px 8px 0;
+        }
+        @include list-wrapper() {
+            padding-right: 48px;
+        }
+    }
+    &__bottom {
+        li {
+            cursor: pointer;
+            transition: all 0.2s ease-in;
+            &:hover {
+                color: $white-100;
+            }
+        }
+        .copy-right {
+            background: $dark-100;
+            color: $white-100;
+        }
+    }
+}

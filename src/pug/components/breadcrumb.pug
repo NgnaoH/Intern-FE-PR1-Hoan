@@ -1,0 +1,4 @@
+mixin breadcrumb(breadCrumItems)
+	div.breadcrumb
+		each val,index in breadCrumItems
+			a(class = (index != breadCrumItems.length - 1) ? "breadcrumb-item" : "breadcrumb-item active", href=`${val[1]}`)=val[0]

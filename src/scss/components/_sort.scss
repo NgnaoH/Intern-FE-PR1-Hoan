@@ -1,0 +1,109 @@
+.sort {
+    @include list-wrapper($grey-100, $green-100) {
+        .list-sort-item {
+            text-transform: none;
+            border-bottom: 1px solid $white-250;
+            &:first-child {
+                border: none;
+            }
+            &.active {
+                color: $green-100;
+            }
+        }
+        .sort-color {
+            cursor: pointer;
+            text-transform: none;
+            &:not(:first-child) {
+                @include flex("", "", "");
+                div {
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 999px;
+                    margin-right: 8px;
+                }
+            }
+            .green {
+                background: #98cb4a;
+            }
+            .red-orange {
+                background: #f76d3c;
+            }
+            .purple {
+                background: #913ccd;
+            }
+            .blue {
+                background: #5481e6;
+            }
+            .yellow {
+                background: #f7d842;
+            }
+            .pink {
+                background: #f15f74;
+            }
+        }
+        .sort-image {
+            text-transform: none;
+            &:not(:first-child) {
+                div {
+                    cursor: pointer;
+                    .img {
+                        width: 32%;
+                        overflow: hidden;
+                        margin: 0;
+                        padding-top: 18% !important;
+                        position: relative;
+                        &::after {
+                            content: "";
+                            @include absolute(0, 0, "", "");
+                            background: $white-100;
+                            width: 100%;
+                            height: 100%;
+                            opacity: 0;
+                            transition: all 0.2s ease-in;
+                        }
+                        &:hover {
+                            &::after {
+                                opacity: .15;
+                            }
+                        }
+                        img {
+                            @include absolute(50%, "", "", 50%);
+                            width: 100%;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+                    .content {
+                        width: 64%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+        .sort-tag {
+            text-transform: none;
+            &:not(:first-child) {
+                border: 1px solid $grey-100;
+                font-size: 12px;
+                padding: 4px 8px;
+                line-height: normal;
+                margin-bottom: 8px;
+                margin-right: 8px;
+                cursor: pointer;
+                &.active {
+                    color: white;
+                    background: $green-100;
+                    border-color: $green-100;
+                }
+                &:hover {
+                    color: white;
+                    background: $green-100;
+                    border-color: $green-100;
+                }
+            }
+        }
+        a {
+            text-decoration: none;
+            color: unset;
+        }
+    }
+}

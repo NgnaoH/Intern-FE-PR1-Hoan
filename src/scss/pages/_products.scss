@@ -1,0 +1,28 @@
+.products-page {
+    .sort-bar {
+        font-size: 14px;
+        .list {
+            .item {
+                padding: 0 1rem;
+                i {
+                    cursor: pointer;
+                    position: relative;
+                    font-size: 24px;
+                    color: $grey-100;
+                    transition: all 0.2s ease-in;
+                    &:hover {
+                        color: $green-100;
+                    }
+                }
+            }
+        }
+        select {
+            cursor: pointer;
+            font-size: 12px;
+            padding: 8px;
+            border: 1px solid $white-200;
+            outline: $grey-100;
+            color: $grey-100;
+        }
+    }
+}

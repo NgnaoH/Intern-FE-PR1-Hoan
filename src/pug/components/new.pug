@@ -1,0 +1,32 @@
+mixin newMedium(src, title, content)
+	.newMedium
+		.newMedium__img
+			img(src=src)
+		.newMedium__content
+			.date
+				p Thứ 7, ngày 31, tháng 12, năm 2021
+			.title.text-ellipsis-2line
+				p= title
+			.content.text-ellipsis-2line
+				p= content
+			.read-more
+				a Đọc tiếp
+mixin newLarge(title, src, content)
+	.newLarge.py-5.pt-0.px-3
+		.newLarge__title
+			p= title
+			.pre-new.d-flex.flex-wrap.py-3
+				.icon-text.text-grey-100
+					+icon('far fa-calendar-minus')(class="text-green-100")
+					span 20/12/2015
+				.icon-text.text-grey-100
+					+icon('far fa-clock')(class="text-green-100")
+					span 11:20:00 AM
+				.icon-text.text-grey-100
+					+icon('far fa-comment-dots')(class="text-green-100")
+					span 0 Bình luận
+		.newLarge__img
+			a(href="/details-new.html")
+				img(src=src)
+		.newLarge__content.py-4.pb-0.text-grey-100
+			p= content

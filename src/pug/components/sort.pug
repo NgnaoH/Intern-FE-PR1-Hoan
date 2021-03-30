@@ -1,0 +1,23 @@
+mixin sort(sortMethod, isFirst, sortStyle)
+	ul.list-wrapper.w-md-100.py-3.pt-0.d-flex(class= [(sortStyle === "text" || sortStyle === "image" ? "flex-column justify-content-between" : ""), (sortStyle === "color" || sortStyle === "tag" ? "flex-wrap" : "")])
+		each val, index in sortMethod
+			if (index === 0 )
+				li(class= [(sortStyle === "text" ? "icon-text list-sort-item" : ""), (sortStyle === "color" ? "sort-color" : ""), (sortStyle === "color" || sortStyle === "tag" ? "w-100" : ""), (sortStyle === "tag" ? "sort-tag" : ""), , (sortStyle === "image" ? "sort-image" : "")])
+					+title(val)(class="p-0")
+			else
+				li(class = [(index === 2 && isFirst === 0) || (index === 1 && sortStyle === "tag")  ? "active" : "", (sortStyle === "text" ? "icon-text list-sort-item" : ""), (sortStyle === "color" ? "sort-color w-50" : ""), (sortStyle === "tag" ? "sort-tag" : ""), , (sortStyle === "image" ? "sort-image" : "")])
+					if (sortStyle === "color")
+						div(class=val[1])
+						span= val[0]
+					else if (sortStyle === "tag")
+						.p-1
+							span= val
+					else if (sortStyle === "image")
+						a(href="/details-new.html")
+							.d-flex.justify-content-between
+								.img 
+									img(src=val[0])
+								.content.text-ellipsis-2line= val[1]
+					else
+						+icon('fas fa-chevron-right')
+						span= val

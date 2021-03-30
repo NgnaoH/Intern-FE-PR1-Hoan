@@ -1,0 +1,11 @@
+.breadcrumb {
+    padding: 24px 0;
+    a {
+        color: $grey-100;
+        font-size: 12px;
+        text-decoration: none;
+    }
+    .active {
+        color: $green-100;
+    }
+}

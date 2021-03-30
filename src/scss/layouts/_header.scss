@@ -1,0 +1,119 @@
+.header {
+    @include Arial-font;
+    &__top {
+        height: 32px;
+        background: $dark-300;
+        @include list;
+        li {
+            border-left: 1px solid $grey-100;
+            &:last-child {
+                border-right: 1px solid $grey-100;
+            }
+        }
+        @include link($grey-300, $grey-100);
+    }
+    &__body {
+        height: calc(177px - 32px);
+        background: $white-100 url(../assets/background/bg-1.png) repeat;
+        @include logo($grey-100);
+        .layer {
+            height: 145px;
+        }
+        .contact {
+            @include flex("", center, "");
+            padding-bottom: 1rem;
+        }
+        @include search(100%, 40px, 24px, $white-100);
+        .cart {
+            transform: translateY(350%);
+            text-decoration: none;
+            @include flex("", flex-end, flex-end);
+            i {
+                font-size: 24px;
+            }
+            &:hover {
+                color: inherit;
+            }
+        }
+    }
+    .navbar {
+        height: calc(226px - 177px);
+        background: $green-100;
+        .menu-wrapper {
+            @include tablet {
+                position: absolute;
+                left: 0;
+                z-index: 100;
+                background: $green-100;
+                width: 100vw;
+                ul {
+                    @include flex(column, center, center);
+                }
+            }
+            .menu {
+                height: 49px;
+                @include tablet {
+                    height: 100%;
+                }
+                @include flex("", "", "");
+                .menu-item {
+                    @include flex(column, center, center);
+                    cursor: pointer;
+                    padding: 10px;
+                    font-size: 14px;
+                    text-transform: uppercase;
+                    &:hover {
+                        background: $green-300;
+                    }
+                    @include link;
+                }
+                @include dropdown;
+                @include tablet {
+                    .menu-item {
+                        width: 100%;
+                    }
+                    .collapsing {
+                        height: 200px !important;
+                    }
+                }
+                .active {
+                    background: $green-300;
+                }
+            }
+        }
+
+        @include list(49px, 100%, $green-300, $white-100);
+        .btn-collapse {
+            height: 49px;
+            width: 49px;
+            background: transparent;
+            i {
+                font-size: 24px;
+            }
+        }
+
+        &__search {
+            @include absolute(50%, 100%, "", "");
+            transform: translateY(-50%);
+            opacity: 0;
+            width: 0;
+            background: $green-100;
+            transition: all 0.2s ease-in;
+            @include search(100%, 40px, 0, $green-100, -10);
+        }
+
+        .btn-icon {
+            li {
+                &:first-child {
+                    &:hover {
+                        .navbar__search {
+                            transition: all 0.2s ease-in;
+                            width: 100px;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

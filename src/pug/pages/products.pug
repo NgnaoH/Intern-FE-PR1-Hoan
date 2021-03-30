@@ -1,0 +1,67 @@
+extends ../base/base
+include ../components/breadcrumb
+include ../components/title
+include ../components/product
+include ../components/pagination
+include ../components/carousel
+include ../components/sort
+
+block pages
+	include ../data/data
+	- var sort = data.productsPage.sort
+	- var products = data.products.productsPage
+	- var breadCrumItems = data.productsPage.breadCrumItems
+	- 
+		var pages = {
+			title: "Sản phẩm",
+			link: "/products.html"
+		}
+block layouts
+	section.products-page
+		.container.py-5.pt-0
+			.px-3
+				+breadcrumb(breadCrumItems)
+			.row
+				.col-lg-3.py-3.pt-0.px-3.sort
+					each val, index in sort
+						+sort(val.sortMethod, index, val.sortStyle)
+				.col-lg-9
+					.banner
+						.banner__img.center.px-3
+							img(src="../assets/images/products.png")
+					.py-4.sort-bar.d-flex.flex-md-row-reverse.flex-column.justify-content-between.align-items-center
+						ul.list.d-flex.py-2.justify-content-between
+							li.item
+								label.p-2.pt-0 Sắp xếp theo
+								select
+									option(value="name") Tên sản phẩm
+									option(value="price") Giá tiền
+									option(value="rate") Yêu thích
+							li.item
+								label.p-2.pt-0 Hiển thị
+								select
+									option(value="6") 6
+									option(value="9") 9
+									option(value="12") 12
+									option(value="15") 15
+						ul.list.d-flex.py-2
+							li.item(style="opacity: 0")
+								label(for="grid")
+									+icon('fas fa-th')
+							li.item.p-0(style="opacity: 0")
+								label(for="list")
+									+icon('fas fa-th-list')
+					.products
+							+carouselProductsIndicatorsTab(["grid", "list"])
+								block itemActive
+									.row
+										each val in products
+											.col-md-4.col-sm-6.px-3.py-4.pt-0
+												+product(val.src, val.name, val.status, val.priceNew, val.priceOld, val.rate, val.size)
+								block item
+									.row
+										each val in products
+											.col-12.px-3.py-4.pt-0
+												+product(val.src, val.name, val.status, val.priceNew, val.priceOld, val.rate, val.size, "vertical")
+							.col-12.d-flex.justify-content-end.py-4
+								+pagination(3)

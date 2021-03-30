@@ -1,0 +1,53 @@
+extends ../base/base
+include ../components/carousel
+include ../components/title
+include ../components/new
+
+block pages
+	include ../data/data
+	- var productsPopular = data.products.productsPopular
+	- var productsSale = data.products.productsSale
+	- var productsNew = data.products.productsNew
+	- var homeNews = data.news.home
+	- 
+		var pages = {
+			title: "Trang chủ",
+			link: "/" 
+		}
+block layouts
+	include ../layouts/highlight-products.pug
+	section.products__sale
+		.container
+			.row
+				.col-3.d-lg-block.d-none
+					+carouselProducts('Sản phẩm mua nhiều', productsPopular, 6, "small")
+				.col-12.d-lg-none.d-sm-block.d-none.py-4
+					+carouselProducts('Sản phẩm mua nhiều', productsPopular, 3, "small")
+				.col-12.d-sm-none.d-block
+					+carouselProducts('Sản phẩm mua nhiều', productsPopular, 1, "small")
+				.col-9.d-lg-block.d-none
+					+carouselProducts('Sản phẩm khuyến mại', productsSale, 6, "medium")
+				.col-12.d-lg-none.d-md-block.d-none
+					+carouselProducts('Sản phẩm khuyến mại', productsSale, 4, "medium")
+				.col-12.d-md-none.d-block
+					+carouselProducts('Sản phẩm khuyến mại', productsSale, 1, "medium")
+	section.banner
+		.container
+			.banner__img.center.px-3
+				img(src="../assets/images/banner.png")
+	section.products__new
+		.container
+			.row
+				.col-12.d-lg-block.d-none
+					+carouselProducts('Sản phẩm mới', productsNew, 8, "large")
+				.col-12.d-lg-none.d-none.d-md-block
+					+carouselProducts('Sản phẩm mới', productsNew, 4, "large")
+				.col-12.d-md-none.d-block
+					+carouselProducts('Sản phẩm mới', productsNew, 1, "large")
+	section
+		.container
+			+title('Tin tức')
+			.row
+				each val in homeNews
+					.col-lg-4.p-3
+						+newMedium(val.src, val.title, val.content)

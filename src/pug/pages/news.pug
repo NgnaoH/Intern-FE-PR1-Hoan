@@ -1,0 +1,32 @@
+extends ../base/base
+include ../components/breadcrumb
+include ../components/sort
+include ../components/pagination
+include ../components/new
+
+block pages
+	include ../data/data
+	- var breadCrumItems = data.newsPage.breadCrumItems
+	- var sort = data.newsPage.sort
+	- var news = data.newsPage.news
+	- 
+		var pages = {
+			title: "Tin tức",
+			link: "/news.html"	
+		}
+block layouts
+	section.news-page
+		.container
+			.px-3
+				+breadcrumb(breadCrumItems)
+			.row.py-5.pt-0
+				.col-lg-3.px-3.py-3.pt-0.sort
+					each val, index in sort
+						+sort(val.sortMethod, index, val.sortStyle)
+				.col-lg-9
+					.news
+						each val in news
+							+newLarge(val.title, val.image, val.content)
+					.col-12.d-flex.justify-content-end.py-4
+						+pagination(4)
+

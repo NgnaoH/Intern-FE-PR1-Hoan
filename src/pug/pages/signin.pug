@@ -1,0 +1,31 @@
+extends ../base/base
+include ../components/breadcrumb
+include ../components/input
+
+block pages
+	include ../data/data
+	- var breadCrumItems = data.signInPage.breadCrumItems
+	- var inputSignInOwn = data.signInPage.inputSignInOwn
+	- var inputSignInAccount = data.signInPage.inputSignInAccount
+	- 
+		var pages = {
+			title: "Đăng Ký",
+			link: "/sign.html"
+		}
+block layouts 
+	.signin
+		.container
+			+breadcrumb(breadCrumItems)
+			p Thông tin cá nhân
+				.row
+					each val in inputSignInOwn
+						.col-md-6
+							+input(val[0], val[1], val[2])
+			p Thông tin tài khoản
+				.row
+					each val in inputSignInAccount
+						.col-md-6
+							+input(val[0], val[1], val[2])
+					.col-sm-3.d-flex.flex-sm-row.flex-column.align-items-center
+						+input("Quay lại", "button", "white")
+						+input("Đăng ký", "button", "green")

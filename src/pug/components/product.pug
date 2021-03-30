@@ -1,0 +1,101 @@
+include ./icon
+
+mixin product(src, name, status, priceNew, priceOld, rate, size, style= "horizon")
+	- var idImage = Math.floor(Math.random() * (15) + 1)
+	if (style === "vertical")
+		.product-vertical
+			.product-vertical__image
+				img(src=`../assets/images/${src}-${idImage}.png`, alt="meow")
+			.product-vertical__description
+				.title
+					p.text-ellipsis=name
+				.rate
+					- for (var i = 1; i <= rate; i++)
+						+icon('fas fa-star')
+					if (rate * 10 % 10)
+						+icon('fas fa-star-half-alt')
+					- for (var i = Math.ceil(rate); i < 5; i++)
+						+icon('far fa-star')
+				.content.text-ellipsis-2line Cây Ngọc Ngân là loại cây dành cho tình yêu! Đây là món quà bất ngờ để bạn "người ấy". Ngọc Ngân (valentine) không chỉ đẹp ở phiến là xanh đốm trắng.Cây Ngọc Ngân là loại cây dành cho tình yêu! Đây là món quà bất ngờ để bạn "người ấy". Ngọc Ngân (valentine) không chỉ đẹp ở phiến là xanh đốm trắng. 
+				.price
+					.price__new
+						p=`${priceNew} đ`
+				.btn-wrapper
+					button.btn-buy.d-md-inline.d-none MUA NGAY
+					button.btn-buy.d-md-none.d-inline-block
+						+icon('fas fa-shopping-cart')
+					a(href="/details-product.html").btn-see.my-1.center
+						+icon('fas fa-search')
+					button.btn-like.my-1
+						+icon('fas fa-heart')
+	else
+		div(class= (size === "small") ? "product product-small" : "product")
+			div(class= (size === "small") ? "product__image product-small__image" : "product__image")
+				img(src=`../assets/images/${src}-${idImage}.png`, alt="meow")
+				if (status === "new")
+					.status.center.bg-green-200
+						p=status
+				else if (status === "")
+					.status
+				else 
+					.status.center.bg-red-100
+						p=status
+				.btn-wrapper.center
+					if (size === "large")
+						button.btn-buy MUA NGAY
+					else 
+						button.btn-buy
+							+icon('fas fa-shopping-cart')
+					a(href="/details-product.html").btn-see.center
+						+icon('fas fa-search')
+			div(class= (size === "small") ? "product__description product-small__description" : "product__description")
+				.title.center
+					p.text-ellipsis=name
+				.rate.center
+					- for (var i = 1; i <= rate; i++)
+						+icon('fas fa-star')
+					if (rate * 10 % 10)
+						+icon('fas fa-star-half-alt')
+					- for (var i = Math.ceil(rate); i < 5; i++)
+						+icon('far fa-star')
+				.price.center.justify-content-center.flex-column.flex-sm-row
+					.price__new
+						p=`${priceNew} đ`
+					if (priceOld != "")
+						.price__old
+							p=`${priceOld} đ`
+
+mixin productDetails(rate, priceNew, priceOld)
+	.product-details.row
+		.product-details__image.col-lg-5
+			block
+		.product-details__description.col-lg-7
+			.title
+				p.text-ellipsis Cây Dạ Lam
+			.rate
+				- for (var i = 1; i <= rate; i++)
+					+icon('fas fa-star')
+				if (rate * 10 % 10)
+					+icon('fas fa-star-half-alt')
+				- for (var i = Math.ceil(rate); i < 5; i++)
+					+icon('far fa-star')
+			.price
+				.price__new
+					p=`${priceNew} đ`
+				if (priceOld != "")
+					.price__old
+						p=`${priceOld} đ`
+			.content Cây Ngọc Ngân là loại cây dành cho tình yêu! Đây là món quà bất ngờ để bạn "người ấy". Ngọc Ngân (valentine) không chỉ đẹp ở phiến là xanh đốm trắng.Cây Ngọc Ngân là loại cây dành cho tình yêu! Đây là món quà bất ngờ để bạn "người ấy". Ngọc Ngân (valentine) không chỉ đẹp ở phiến là xanh đốm trắng. 
+			.quantity
+				p Số lượng
+				.decrease.center -
+				.number.center 1
+				.increase.center +
+			.btn-wrapper
+				button.btn-buy MUA NGAY
+				a(href="/details-product.html").btn-see.center
+					+icon('fas fa-search')
+				button.btn-like
+					+icon('fas fa-heart')
+			.social
+				img(src="../assets/images/link.png")

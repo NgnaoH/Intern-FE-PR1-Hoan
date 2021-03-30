@@ -1,0 +1,652 @@
+- 
+	var data = {
+		header: {
+			icons: ["fab fa-facebook-f", "fab fa-twitter", "fab fa-tumblr", "fab fa-vimeo-v"],
+			login: [
+				{
+					title: "Đăng nhập",
+					icon: "fas fa-user",
+					link: "/login.html"
+				},
+				{
+					title: "Đăng ký",
+					icon: "fas fa-user-plus",
+					link: "/signin.html"
+				}
+			],
+			menu: [ 
+				{
+					dropdown: false,
+					title: "Trang chủ",
+					link: "/"
+				},
+				{
+					dropdown: false,
+					title: "Giới thiệu",
+					link: ""
+				},
+				{
+					dropdown: true,
+					title: "Sản phẩm",
+					link: "/products.html"
+				},
+				{
+					dropdown: true,
+					title: "Sản phẩm mới",
+					link: ""
+				},
+				{
+					dropdown: false,
+					title: "Tin tức",
+					link: "/news.html"
+				},
+				{
+					dropdown: false,
+					title: "Liên hệ",
+					link: "/contact.html"
+				}
+			],
+			carousel: ["/assets/images/slide.png","/assets/images/slide.png","/assets/images/slide.png"]
+		},
+		products: {
+			productsHighlight: {
+				left:	[
+					{
+						src: "spx2",
+						name: "Cây chân chim",
+						status: "new",
+						priceNew: "250.000",
+						priceOld: "250.000",
+						rate: "5",
+						size: "large"
+					},
+					{
+						src: "spx2",
+						name: "Cây co ta",
+						status: "",
+						priceNew: "150.000",
+						priceOld: "250.000",
+						rate: "4.5",
+						size: "medium"
+					},
+					{
+						src: "spx2",
+						name: "Cây dứa nhỏ",
+						status: "",
+						priceNew: "375.000",
+						priceOld: "250.000",
+						rate: "3",
+						size: "medium"
+					}
+				],
+				right: [
+					{
+						src: "spx2",
+						name: "Cây dạ lam",
+						status: "-50%",
+						priceNew: "500.000",
+						priceOld: "250.000",
+						rate: "3.5",
+						size: "medium"
+					},
+					{
+						src: "spx2",
+						name: "Cây danh dự",
+						status: "new",
+						priceNew: "850.000",
+						priceOld: "250.000",
+						rate: "4",
+						size: "medium"
+					},
+					{
+						src: "spx2",
+						name: "Cây đa búp đỏ",
+						status: "-50%",
+						priceNew: "1.000.000",
+						priceOld: "250.000",
+						rate: "2.5",
+						size: "large"
+					}
+				]
+			},
+			productsPopular: [
+				{
+					src: "spx2",
+					name: "Cây chân chim",
+					status: "",
+					priceNew: "250.000",
+					priceOld: "",
+					rate: "5",
+					size: "small"
+				},
+				{
+					src: "spx2",
+					name: "Cây Dạ Lam",
+					status: "",
+					priceNew: "150.000",
+					priceOld: "",
+					rate: "4.5",
+					size: "small"
+				},
+				{
+					src: "spx2",
+					name: "Cây danh dự",
+					status: "",
+					priceNew: "450.000",
+					priceOld: "",
+					rate: "3",
+					size: "small"
+				},
+				{
+					src: "spx2",
+					name: "Cây đa búp đỏ",
+					status: "",
+					priceNew: "200.000",
+					priceOld: "",
+					rate: "3",
+					size: "small"
+				},
+				{
+					src: "spx2",
+					name: "Cây co ta",
+					status: "",
+					priceNew: "300.000",
+					priceOld: "",
+					rate: "3",
+					size: "small"
+				},
+				{
+					src: "spx2",
+					name: "Cây dứa nhỏ",
+					status: "",
+					priceNew: "275.000",
+					priceOld: "",
+					rate: "3",
+					size: "small"
+				}
+			],
+			productsSale: [
+				{
+					src: "spx2",
+					name: "Cây Danh Dự",
+					status: "-25%",
+					priceNew: "475.000",
+					priceOld: "250.000",
+					rate: "5",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây dứa nhỏ",
+					status: "-10%",
+					priceNew: "150.000",
+					priceOld: "300.000",
+					rate: "4.5",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây cọ ta",
+					status: "",
+					priceNew: "770.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây đa búp đỏ",
+					status: "",
+					priceNew: "200.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây co ta",
+					status: "",
+					priceNew: "300.000",
+					priceOld: "500.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây dứa nhỏ",
+					status: "",
+					priceNew: "475.000",
+					priceOld: "800.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây Danh Dự",
+					status: "-25%",
+					priceNew: "475.000",
+					priceOld: "250.000",
+					rate: "5",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây dứa nhỏ",
+					status: "-10%",
+					priceNew: "150.000",
+					priceOld: "200.000",
+					rate: "4.5",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây cọ ta",
+					status: "",
+					priceNew: "770.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây đa búp đỏ",
+					status: "",
+					priceNew: "200.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây co ta",
+					status: "",
+					priceNew: "300.000",
+					priceOld: "500.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây dứa nhỏ",
+					status: "",
+					priceNew: "475.000",
+					priceOld: "800.000",
+					rate: "3",
+					size: "medium"
+				}
+			],
+			productsNew: [
+				{
+					src: "spx2",
+					name: "Cây Danh Dự",
+					status: "new",
+					priceNew: "475.000",
+					priceOld: "250.000",
+					rate: "5",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây dứa nhỏ",
+					status: "new",
+					priceNew: "150.000",
+					priceOld: "300.000",
+					rate: "4.5",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây cọ ta",
+					status: "new",
+					priceNew: "770.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây đa búp đỏ",
+					status: "",
+					priceNew: "200.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây co ta",
+					status: "",
+					priceNew: "300.000",
+					priceOld: "500.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây dứa nhỏ",
+					status: "",
+					priceNew: "475.000",
+					priceOld: "800.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây Danh Dự",
+					status: "new",
+					priceNew: "475.000",
+					priceOld: "250.000",
+					rate: "5",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây dứa nhỏ",
+					status: "",
+					priceNew: "150.000",
+					priceOld: "200.000",
+					rate: "4.5",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây cọ ta",
+					status: "",
+					priceNew: "770.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây đa búp đỏ",
+					status: "",
+					priceNew: "200.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây co ta",
+					status: "new",
+					priceNew: "300.000",
+					priceOld: "500.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây cọ ta",
+					status: "",
+					priceNew: "770.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây đa búp đỏ",
+					status: "",
+					priceNew: "200.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây co ta",
+					status: "",
+					priceNew: "300.000",
+					priceOld: "500.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây dứa nhỏ",
+					status: "",
+					priceNew: "475.000",
+					priceOld: "800.000",
+					rate: "3",
+					size: "medium"
+				}
+			],
+			productsPage: [
+				//- {
+				//- 	src: "spx2",
+				//- 	name: "Cây Danh Dự",
+				//- 	status: "",
+				//- 	priceNew: "475.000",
+				//- 	priceOld: "250.000",
+				//- 	rate: "5",
+				//- 	size: "medium"
+				//- },
+				//- {
+				//- 	src: "spx2",
+				//- 	name: "Cây dứa nhỏ",
+				//- 	status: "",
+				//- 	priceNew: "150.000",
+				//- 	priceOld: "300.000",
+				//- 	rate: "4.5",
+				//- 	size: "medium"
+				//- },
+				//- {
+				//- 	src: "spx2",
+				//- 	name: "Cây cọ ta",
+				//- 	status: "",
+				//- 	priceNew: "770.000",
+				//- 	priceOld: "250.000",
+				//- 	rate: "3",
+				//- 	size: "medium"
+				//- },
+				{
+					src: "spx2",
+					name: "Cây đa búp đỏ",
+					status: "",
+					priceNew: "200.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây co ta",
+					status: "",
+					priceNew: "300.000",
+					priceOld: "500.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây dứa nhỏ",
+					status: "",
+					priceNew: "475.000",
+					priceOld: "800.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây Danh Dự",
+					status: "",
+					priceNew: "475.000",
+					priceOld: "250.000",
+					rate: "5",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây dứa nhỏ",
+					status: "",
+					priceNew: "150.000",
+					priceOld: "200.000",
+					rate: "4.5",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây cọ ta",
+					status: "",
+					priceNew: "770.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây đa búp đỏ",
+					status: "",
+					priceNew: "200.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây co ta",
+					status: "",
+					priceNew: "300.000",
+					priceOld: "500.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây cọ ta",
+					status: "",
+					priceNew: "770.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây đa búp đỏ",
+					status: "",
+					priceNew: "200.000",
+					priceOld: "250.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây co ta",
+					status: "",
+					priceNew: "300.000",
+					priceOld: "500.000",
+					rate: "3",
+					size: "medium"
+				},
+				{
+					src: "spx2",
+					name: "Cây dứa nhỏ",
+					status: "",
+					priceNew: "475.000",
+					priceOld: "800.000",
+					rate: "3",
+					size: "medium"
+				}
+			]			
+		},
+		news: {
+			home: [
+				{
+					src: "../assets/images/new-1.png",
+					title: "15 thiết kế phòng ngủ tuyệt đẹp vạn người mê",
+					content: "Cùng Sài Gòn tìm hiểu một vài xu hướng thiết kế sân vườn được ưa chuộng hiện nay nhé! Kết hợp hàng rào. Cùng Sài Gòn tìm hiểu một vài xu hướng thiết kế sân vườn được ưa chuộng hiện nay nhé! Kết hợp hàng rào Cùng Sài Gòn tìm hiểu một vài xu hướng thiết kế sân vườn được ưa chuộng hiện nay nhé! Kết hợp hàng rào "
+				},
+				{
+					src: "../assets/images/new-2.png",
+					title: "Tạo tiểu cảnh góc sân nhà phố, biệt thự đẹp",
+					content: "Khi bước từ ngoài ngõ vào hay từ trong nhà đi ra, góc sân luôn là điểm nhìn đầu tiên của chúng ta."
+				},
+				{
+					src: "../assets/images/new-3.png",
+					title: "Cách bố trí hoa chậu trước cửa ấn tượng",
+					content: "Như thể hiện sự thân thiện cũng như sự hiếu khách của gia chủ, phần không gian trước cửa."
+				}
+			]
+		},
+		footer: {
+			topIcons: ["fab fa-facebook-f", "fab fa-twitter", "fab fa-youtube", "fab fa-vimeo-v"],
+			widgetBody: [
+				["Thông tin khách hàng", "Tài khoản của tôi", "Sản phẩm yêu thích", "Lịch sử mua hàng", "Chính sách đổi trả", "Góp ý, khiếu nại"],
+				["Hỗ trợ dịch vụ", "Hệ thống cửa hàng", "Hướng dẫn mau hàng", "Hướng dẫn thanh toán", "Tích điểm đổi quà", "Câu hỏi thường gặp"],
+				["Chính sách ưu đãi", "Chính sách giao hàng", "Chính sách đổi trả sản phẩm", "Chính sách bảo hành", "Giới thiệu sản phẩn mới", "Chính sách trả góp"],
+				["Tin tức", "Tin mới", "Khuyến mại", "Tuyển dụng", "Download", "Tag"]
+			],
+			widgetBottom: ["Sitemap", "Danh mục sản phẩm", "Hợp tác", "Thông tin liên hệ", "Câu hỏi thường gặp"],
+			widgetBottomIcons: ["fab fa-cc-visa", "fab fa-cc-mastercard", "fab fa-cc-paypal", "fab fa-cc-discover"]
+		},
+		loginPage: {
+			breadCrumItems: [["Trang chủ", "/"], ["Đăng nhập", "/login.html"]],
+			inputLogin: [["Email của bạn", "text"], ["Mật khẩu", "password"], ["Ghi nhớ tài khoản", "checkbox", ""]]
+		},
+		signInPage: {
+			breadCrumItems: [["Trang chủ", "/"], ["Đăng Ký", "/signin.html"]],
+			inputSignInOwn: [["Họ và tên ", "text", "asterisk"], ["Số điện thoại ", "text", "asterisk"], ["Đại chỉ email ", "text", "asterisk"], ["Website của bạn ", "text", "asterisk"], ["Đăng ký nhận thông tin qua email", "checkbox", "none"]],
+			inputSignInAccount: [["Mật khẩu ", "text", "asterisk"], ["Nhập lại mật khẩu ", "text", "asterisk"]]
+		},
+		productsPage: {
+			breadCrumItems: [['Home', '/'], ['Danh sách sản phẩm', 'products.html']],
+			sort: [
+				{
+					sortMethod: ["Danh mục sản phẩm", "Cây châu treo (10)", "Cây có hoa (5)", "Cây dây leo", "Cây để bàn", "Cây may mắn", "Cây trang trí", "Cây nội thất"],
+					sortStyle: "text"
+				},
+				{
+					sortMethod: ["Tìm theo giá", "200.000 Đ - 400.000 Đ", "400.000 Đ - 600.000 Đ", "600.000 Đ - 800.000 Đ", "800.000 Đ - 1000.000 Đ", "1.000.000 Đ - 2.000.000 Đ"],
+					sortStyle: "text"
+				},
+				{
+					sortMethod: ["Tìm theo màu", ["Xanh cây", "green"],["Đỏ cam", "red-orange"],["Tím", "purple"],["Xanh trời", "blue"],["Vàng", "yellow"],["Hồng", "pink"]],
+					sortStyle: "color"
+				}
+			]
+		},
+		detailsProductPage: {
+			breadCrumItems: [['Home', '/'], ['Cây dạ lam', 'details-product.html']]
+		},
+		cartPage: {
+			breadCrumItems: [['Home', '/'], ['Giỏ hàng', '/cart.html']]
+		},
+		newsPage: {
+			breadCrumItems: [['Home', '/'], ['Tin tức', '/news.html']],
+			sort: [
+				{
+					sortMethod: ["Danh mục sản phẩm", "Cây châu treo (10)", "Cây có hoa (5)", "Cây dây leo", "Cây để bàn", "Cây may mắn", "Cây trang trí", "Cây nội thất"],
+					sortStyle: "text"
+				},
+				{
+					sortMethod: ["Tin tức nổi bật", ["../assets/images/new-4.png", "Hướng dẫn chọn và bố trí cây xanh trong phòng khách"], ["../assets/images/new-7.png", "Những sai lầm nên tránh khi bố trí cây xanh trong nhà"], ["../assets/images/new-6.png", "7 loại cây xanh văn để bàn đang được giới văn phòng ưa chuộng"], ["../assets/images/new-3.png", "Hướng dẫn lựa chọn cây cảnh trang trí trong văn phòng "], ["../assets/images/new-1.png", "4 loại cây cảnh thích hợp bày trí ở khu vực đại sảnh"] ],
+					sortStyle: "image"
+				},
+				{
+					sortMethod: ["Blog tag", "Cây văn phòng", "Cây phát lộc", "Cây xanh", "Cây trang trí", "Cây", "Plants", "Sức khỏe", "Quà tặng", "Lưu niệm"],
+					sortStyle: "tag"
+				}
+			],
+			news: [
+				{
+					title: "Cách bố trí hoa chậu trước cửa ấn tượng ngay lần đầu tiên",
+					image: "../assets/images/new-5.png",
+					content: "Như thể hiện sự thân thiện cũng như sự hiếu khách của gia chủ, phần không gian trước cửa nhà luôn được đầu tư và trang trí khá bắt mắt. Cũng có thể nói đây là bộ mặt của ngôi nhà, là ấn tượng đầu tiên khi một vị khách ghé chơi nhà bạn đấy. Hãy cùng Sài Gòn Hoa tham khảo một vài cách bố trí chậu cây hoa cảnh ngay trước cửa nhà sao cho ấn tượng nhất nhé!"
+				},
+				{
+					title: "Hướng dẫn lựa chọn và bố trí cây xanh trong phòng khách",
+					image: "../assets/images/new-3.png",
+					content: "Như thể hiện sự thân thiện cũng như sự hiếu khách của gia chủ, phần không gian trước cửa nhà luôn được đầu tư và trang trí khá bắt mắt. Cũng có thể nói đây là bộ mặt của ngôi nhà, là ấn tượng đầu tiên khi một vị khách ghé chơi nhà bạn đấy. Hãy cùng Sài Gòn Hoa tham khảo một vài cách bố trí chậu cây hoa cảnh ngay trước cửa nhà sao cho ấn tượng nhất nhé!"
+				},
+				{
+					title: "7 loại cây xanh để bàn đang được giới văn phòng ưa chuộng",
+					image: "../assets/images/new-4.png",
+					content: "Như thể hiện sự thân thiện cũng như sự hiếu khách của gia chủ, phần không gian trước cửa nhà luôn được đầu tư và trang trí khá bắt mắt. Cũng có thể nói đây là bộ mặt của ngôi nhà, là ấn tượng đầu tiên khi một vị khách ghé chơi nhà bạn đấy. Hãy cùng Sài Gòn Hoa tham khảo một vài cách bố trí chậu cây hoa cảnh ngay trước cửa nhà sao cho ấn tượng nhất nhé!"
+				}
+			]
+		},
+		detailsNewPage: {
+			breadCrumItems: [['Home', '/'], ['Cây dạ lam', '/details-new.html']]
+		}
+	}

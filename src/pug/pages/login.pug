@@ -1,0 +1,27 @@
+extends ../base/base
+include ../components/breadcrumb
+include ../components/input
+
+block pages
+	include ../data/data
+	- var breadCrumItems = data.loginPage.breadCrumItems
+	- var inputLogin = data.loginPage.inputLogin
+	- 
+		var pages = {
+			title: "Đăng Nhập",
+			link: "/login.html"
+		}
+block layouts
+	.login
+		.container
+			+breadcrumb(breadCrumItems)
+			.row.py-5
+				.col-md-6
+					p Thông tin cá nhân
+					each val in inputLogin
+						+input(val[0], val[1], val[2])
+					+input("Đăng nhập", "button", "green")
+				.col-md-6.px-md-4.px-0
+					p Bạn chưa có tài khoản ?
+					span Đăng ký tài khỏa ngay đẻ có thẻ mua hàng nhanh chóng và dễ dàng hơn ! Ngoài ra còn có rất nhiều chính sách và ưu đãi cho các thành viên citybike
+					+input("Đăng ký", "button", "green")
