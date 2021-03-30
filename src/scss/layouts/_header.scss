@@ -1,0 +1,119 @@
+@import "../base/mixins";
+.header {
+  @include Arial-font;
+  &__top {
+    height: 32px;
+    background: var(--dark-300);
+
+    @include list;
+    li {
+      border-left: 1px solid var(--grey-100);
+      &:last-child {
+        border-right: 1px solid var(--grey-100);
+      }
+    }
+
+    @include link(var(--grey-300), var(--grey-100));
+  }
+  &__body {
+    height: calc(177px - 32px);
+    background: var(--white-100) url(../assets/background/bg-1.png) repeat;
+
+    @include logo(var(--grey-100));
+
+    .layer {
+      height: 145px;
+    }
+
+    .contact {
+      @include flex("", center, "");
+      padding-bottom: 1rem;
+    }
+
+    @include search(100%, 40px, 24px, var(--white-100));
+
+    .cart {
+      transform: translateY(350%);
+      i {
+        font-size: 24px;
+      }
+    }
+  }
+  .navbar {
+    height: calc(226px - 177px);
+    background: var(--green-100);
+
+    .menu-wrapper {
+      @include tablet {
+				position: absolute;
+				left: 0;
+				z-index: 100;
+        background: var(--green-100);
+				width: 100vw;
+				ul {
+					@include flex(column, center , center)
+				}
+      }
+      .menu {
+				height: 49px;
+				@include tablet {
+					height: 100%;
+				}
+        @include flex("", "", "");
+        .menu-item {
+          @include flex(column, center, center);
+          cursor: pointer;
+          padding: 10px;
+          font-size: 14px;
+          text-transform: uppercase;
+          &:hover {
+            background: var(--green-300);
+          }
+          @include link;
+        }
+        @include dropdown;
+				@include tablet {
+					.menu-item {
+						width: 100%;
+					}
+					.collapsing {
+						height: 200px !important;
+					}
+				}
+        .active {
+          background: var(--green-300);
+        }
+      }
+    }
+    
+    @include list(49px, 100%, var(--green-300), var(--white-100));
+		.btn-collapse {
+			height: 49px;
+			width: 49px;
+			background: transparent;
+			i {
+				font-size: 24px;
+			}
+		}
+
+    &__search {
+      @include absolute(50%, 100%, "", "");
+      transform: translateY(-50%);
+      opacity: 0;
+      width: 0;
+      background: var(--green-100);
+      transition: all .2s ease-in;
+      @include search(100%, 40px, 0, var(--green-100), -10)
+    }
+    
+    .btn-icon {
+      &:hover {
+        .navbar__search {
+          transition: all .2s ease-in;
+          width: 100px;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

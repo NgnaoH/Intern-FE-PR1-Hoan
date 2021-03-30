@@ -1,0 +1,19 @@
+mixin carousel(src)
+	.carousel
+		#carouselIndicators.carousel.slide(data-bs-ride="carousel", auto)
+			.carousel-indicators
+				button(data-bs-target="#carouselIndicators", data-bs-slide-to="0", class="active", aria-current="true", aria-label="Slide 1")
+				button(data-bs-target="#carouselIndicators", data-bs-slide-to="1", aria-label="Slide 2")
+				button(data-bs-target="#carouselIndicators", data-bs-slide-to="2", aria-label="Slide 3")
+			.carousel-inner
+				.carousel-item.active
+					img(src=src[0], class="d-block w-100", alt="...")
+				- for (var i = 1; i < src.length; i++) 
+					.carousel-item
+						img(src=src[i], class="d-block w-100", alt="...")
+			button.carousel-control-prev(data-bs-target="#carouselIndicators", data-bs-slide="prev")
+				span.carousel-control-prev-icon(aria-hidden="true")
+			button.carousel-control-next(data-bs-target="#carouselIndicators", data-bs-slide="next")
+				span.carousel-control-next-icon(aria-hidden="true")
+mixin carouselProducts() 
+	.carousel

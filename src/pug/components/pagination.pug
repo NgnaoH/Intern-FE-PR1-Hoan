@@ -1,0 +1,10 @@
+mixin pagination(pages)
+	nav(aria-label="...")
+		ul.pagination
+			li.page-item
+				a.page-link.center(href="#") Trang trước
+			- for(var i = 1; i<= pages; i++)
+				li.page-item(class= (i === 1) ? "active" : "")
+					a.page-link.page-link__number.center(href="#")= i 
+			li.page-item
+				a.page-link.center(href="#") Trang cuối 

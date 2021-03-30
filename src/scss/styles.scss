@@ -1,0 +1,14 @@
+@import './base/global';
+@import './base/mixins';
+@import './base/placeholders';
+@import './base/reset';
+@import './base/variables';
+
+@import './components/carousel';
+@import './components/product';
+@import './components/title';
+
+@import './layouts/footer';
+@import './layouts/header';
+
+@import './pages/index';

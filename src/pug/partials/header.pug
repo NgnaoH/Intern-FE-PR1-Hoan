@@ -1,0 +1,81 @@
+include ../components/icon
+include ../components/carousel
+include ../components/logo
+include ../data/data
+- var icons = data.header.icons
+- var login = data.header.login
+- var menu = data.header.menu
+- var carousel = data.header.carousel
+block pages
+header.header
+	.header__top.d-md-block.d-none
+		.container.h-100
+			.row.text-grey-100
+				.col-8.d-flex.flex-row.align-items-center
+					.icon-text.text-ellipsis
+						+icon('far fa-clock')
+						span Open time: 8:00 - 18:00  Monday - Sunday
+					ul.icon-text.list
+						each val in icons
+							li.item
+								+icon(val)(class="p-0 link")
+				.col-4.d-flex.justify-content-end.align-items-center
+					each val in login 
+						div.icon-text
+							a(href=val.link, class="link")
+								+icon(val.icon)
+								span=val.title
+	.header__body
+		.container.h-100
+			.row
+				.col-lg-6
+					.logo-wrapper.h-100.d-flex.align-items-center.justify-content-lg-start.justify-content-center
+						+logo()
+						img(class='layer d-sm-block d-none', src='./assets/background/layer1.png', alt='layer1')
+				.col-lg-6.d-lg-block.d-none
+					.row
+						.col-8.d-flex.flex-column.justify-content-center
+							.contact.text-grey-300
+								.icon-text
+									+icon('fas fa-phone-alt')
+									span Hỗ trợ: (04) 6674 2332 - (04) 3786 8904			
+							.search-box
+								input(class='search text-grey-300', type='type', placeholder='Tìm kiếm...')
+								button.btn-search.icon-text.p-0
+									+icon('fas fa-search')(class='text-grey-300')
+						.col-4
+							.icon-text.text-dark-300.cart.text-end
+								+icon('fas fa-shopping-basket')(class='text-dark-300')
+								span 0 Sản phẩm
+	.navbar.p-0
+		.container
+			.row
+				.col-lg-12.col-6
+					button(class="d-block d-lg-none btn-collapse", data-bs-toggle="collapse", data-bs-target="#collapseMenu", aria-expanded="false", aria-controls="collapseMenu")
+						+icon('fas fa-bars')(class='text-white-100')
+					.collapse.d-lg-block.menu-wrapper#collapseMenu
+						ul.menu
+							each val in menu
+								if (val.dropdown) 
+									li(class = (pages.link === val.link) ? 'menu-item active dropdown' : 'menu-item dropdown')
+										a(href=val.link, class="link dropdown__toggle")=val.title
+										ul.dropdown__menu.d-none.d-lg-block
+											li.dropdown__item dropdown 1
+											li.dropdown__item dropdown 2
+								else	
+									li(class = (pages.link === val.link) ? 'menu-item active' : 'menu-item')
+										a(href=val.link, class="link")=val.title 
+				.d-block.d-lg-none.col-6.d-flex.justify-content-end
+					ul.btn-icon.list
+						li.item.position-relative
+							+icon('fas fa-search')(class="text-white-100")
+							.navbar__search
+								.search-box
+									input(class='search text-grey-300', type='type', placeholder='Tìm kiếm...')
+									button.btn-search.icon-text.p-0
+										+icon('fas fa-search')(class='text-grey-300')
+						li.btn-icon.item
+							+icon('fas fa-shopping-basket')(class="text-white-100")
+	if (pages.link === "/")
+		+carousel(carousel)
+

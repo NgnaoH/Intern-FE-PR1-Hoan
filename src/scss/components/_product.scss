@@ -1,0 +1,76 @@
+@import "../base/mixins";
+
+.product {
+  cursor: pointer;
+  box-shadow: 0 0 2px 2px var(--white-250);
+  @include Arial-font;
+  &__image {
+    position: relative;
+    .status {
+      @include absolute(3%, "", "", 3%);
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      color: var(--white-100);
+      text-transform: uppercase;
+      font-size: 12px;
+      line-height: 0;
+      z-index: 100;
+    }
+    .btn-wrapper {
+      @include absolute(0, "", "", 0);
+      height: 100%;
+      width: 100%;
+      background: rgba($color: #000000, $alpha: 0.1);
+      opacity: 0;
+      transition: all 0.2s ease-in;
+      z-index: 10;
+      .btn-buy {
+        padding: 0 28px;
+        margin-right: 10px;
+        border-radius: 999px;
+        background: var(--green-200);
+        color: var(--white-100);
+        height: 40px;
+        font-size: 14px;
+        line-height: 0;
+      }
+      .btn-see {
+        width: 40px;
+        height: 40px;
+        border-radius: 999px;
+        background: var(--white-200);
+      }
+    }
+    &:hover > .btn-wrapper {
+      opacity: 1;
+      transition: all 0.2s ease-in;
+    }
+  }
+  &__description {
+    padding: 20px 0;
+    .title {
+      padding: 4px;
+			font-size: 16px;
+			color: var(--grey-400);
+    }
+    .rate {
+      padding: 4px;
+			color: var(--yellow-100);
+    }
+    .price {
+			padding: 4px;
+			&__new {
+				color: var(--red-200);
+				font-size: 18px;
+        padding: 0 4px;
+			}
+			&__old {
+        color: var(--grey-200);
+				text-decoration: line-through;
+				font-size: 14px;
+        padding: 0 4px;
+			}
+    }
+  }
+}

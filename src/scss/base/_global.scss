@@ -1,0 +1,70 @@
+@import "./mixins";
+
+body {
+  @include Arial-font;
+}
+img {
+  max-width: 100%;
+}
+section {
+	padding: 4% 0 !important;
+}
+.p-10-0 {
+  padding: 10px 0;
+}
+.row {
+  height: 100%;
+  width: 100%;
+  --bs-gutter-x: 0;
+}
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  > div {
+    padding: 12px
+  }
+}
+.bg-green-200 {
+  background: var(--green-200);
+}
+.bg-red-100 {
+  background: var(--red-100);
+}
+.center {
+  @include flex("", center, center);
+}
+.text-grey-100 {
+  color: var(--grey-100);
+}
+.text-grey-300 {
+  color: var(--grey-300);
+}
+.text-green-100 {
+  color: var(--green-100);
+}
+.text-dark-300 {
+  color: var(--dark-300);
+}
+.text-white-100 {
+  color: var(--white-100);
+}
+.text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.icon-text {
+  cursor: pointer;
+  font-size: 14px;
+  @include Arial-font;
+  padding: 0 18px;
+  &:first-child {
+    padding-left: 0px;
+  }
+  &:last-child {
+    padding-right: 0px;
+  }
+  i {
+    padding-right: 6px;
+  }
+}

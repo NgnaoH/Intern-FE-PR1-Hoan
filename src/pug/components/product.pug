@@ -1,0 +1,36 @@
+include ./icon
+mixin product(src, name, status, priceNew, priceOld, rate, isBig)
+	.product
+		.product__image
+			img(src=`../assets/images/${src}.png`, alt="meow")
+			if (status === "new")
+				.status.center.bg-green-200
+					p=status
+			else if (status === "")
+				.status
+			else 
+				.status.center.bg-red-100
+					p=status
+			.btn-wrapper.center
+				if (isBig)
+					button.btn-buy MUA NGAY
+				else 
+					button.btn-buy
+						+icon('fas fa-shopping-cart')
+				button.btn-see 
+					+icon('fas fa-search')
+		.product__description
+			div.title.center.text-ellipsis
+				p=name
+			.rate.center
+				- for (var i = 1; i <= rate; i++)
+					+icon('fas fa-star')
+				if (rate * 10 % 10)
+					+icon('fas fa-star-half-alt')
+				- for (var i = Math.ceil(rate); i < 5; i++)
+					+icon('far fa-star')
+			.price.center.justify-content-center.flex-column.flex-sm-row
+				.price__new.text-ellipsis
+					p=`${priceNew} đ`
+				.price__old.text-ellipsis
+					p=`${priceOld} đ`

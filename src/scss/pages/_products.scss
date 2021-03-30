@@ -1,0 +1,77 @@
+@import "../base/mixins";
+
+.products-page {
+  &__soft {
+    @include list-wrapper(var(--grey-100), var(--green-100)) {
+      .list-soft-item {
+        text-transform: none;
+        border-bottom: 1px solid var(--white-250);
+        &:first-child {
+          border: none;
+        }
+        &.active {
+          color: var(--green-100);
+        }
+      }
+      .soft-color {
+        cursor: pointer;
+        text-transform: none;
+        &:not(:first-child) {
+          @include flex("", "", "");
+        }
+        .color {
+          width: 24px;
+          height: 24px;
+          border-radius: 999px;
+          margin-right: 8px;
+        }
+        .green {
+          background: #98cb4a;
+        }
+        .red-orange {
+          background: #f76d3c;
+        }
+        .purple {
+          background: #913ccd;
+        }
+        .blue {
+          background: #5481e6;
+        }
+        .yellow {
+          background: #f7d842;
+        }
+        .pink {
+          background: #f15f74;
+        }
+      }
+    }
+  }
+  .soft-bar {
+    font-size: 14px;
+    .list {
+      .item {
+        padding: 0 1rem;
+        i {
+					cursor: pointer;
+					position: relative;
+          font-size: 24px;
+          color: var(--grey-100);
+          transition: all 0.2s ease-in;
+					&:hover {
+						color: var(--green-100);
+					}
+        }
+      }
+    }
+    select {
+      cursor: pointer;
+      font-size: 12px;
+      padding: 8px;
+      border: 1px solid var(--white-200);
+      outline: var(--grey-100);
+      color: var(--grey-100);
+    }
+  }
+	.products {
+	}
+}

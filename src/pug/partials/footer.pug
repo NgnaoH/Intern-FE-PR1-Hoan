@@ -1,0 +1,49 @@
+include ../components/icon
+include ../components/logo
+
+include ../data/data
+- var icons = data.footer.icons
+- var listFooter = data.footer.listFooter
+
+footer
+	.footer
+		.footer__top
+			.container
+				.row
+					.col-lg-4.p-10-0.d-flex.flex-column.align-items-lg-start.align-items-center
+						p Kênh thông tin từ chúng tôi:
+						br 
+						ul.d-flex
+							each val in icons 
+								li.icon-text
+									+icon(val)
+					.col-lg-3.d-lg-block.d-none.p-10-0
+						p.title Đăng ký nhận emal từ chúng tôi
+					.col-lg-5.d-flex.justify-content-end.p-10-0
+						.search-box
+							input(class='search text-grey-300', type='type', placeholder="Email của bạn ...")
+							button.btn-search.icon-text.p-0
+								+icon('fas fa-paper-plane')(class='text-white-100 p-0')
+		.footer__body
+			.container
+				.row
+					.col-lg-4
+						+logo
+						p.content Green shop được thành lập từ 8/2020 được sự tin tưởng của khách hàng trong suốt thời gian hoạt động đến nay của hàng ngày một phát triển.
+						.phone.icon-text
+							+icon('fas fa-mobile-alt')(class="text-green-100")
+							span Điện thoại: (84-4) 66.558.868			
+						.email.icon-text
+							+icon('far fa-envelope')(class="text-green-100")
+							span Email: info@dkt.com.vn
+					.col-lg-8.d-flex.justify-content-between.flex-wrap
+						each lists in listFooter
+							ul.list-wrapper.d-flex.flex-column.justify-content-between
+								each val, index in lists
+									if (index === 0 )
+										li.icon-text
+											span= val
+									else
+										li.icon-text
+											+icon('fas fa-chevron-right')
+											span= val

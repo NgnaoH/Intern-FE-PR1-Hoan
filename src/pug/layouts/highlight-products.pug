@@ -1,0 +1,26 @@
+include ../components/product
+include ../components/title
+include ../data/data
+- var productsHighlightLeft = data.productsHighlight.left
+- var productsHighlightRight = data.productsHighlight.right
+
+section.products__highlight
+	.container
+		+title('Sản phẩm nổi bật')
+		.row
+			.col-lg-6.wrap
+				each val in productsHighlightLeft
+					if (val.isBig)
+						.w-100
+							+product(val.src, val.name, val.status, val.priceNew, val.priceOld, val.rate, val.isBig)
+					else
+						.w-50
+							+product(val.src, val.name, val.status, val.priceNew, val.priceOld, val.rate, val.isBig)
+			.col-lg-6.wrap
+				each val in productsHighlightRight
+					if (val.isBig)
+						.w-100
+							+product(val.src, val.name, val.status, val.priceNew, val.priceOld, val.rate, val.isBig)
+					else
+						.w-50
+							+product(val.src, val.name, val.status, val.priceNew, val.priceOld, val.rate, val.isBig)

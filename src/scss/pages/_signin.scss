@@ -1,0 +1,16 @@
+@import "../base/mixins";
+.signin {
+  @include Arial-font;
+  color: var(--grey-100);
+  p {
+		font-size: 18px;
+    color: var(--green-100);
+    font-weight: bold;
+		padding: 40px 0 12px;
+		text-transform: uppercase;
+  }
+	span {
+		font-size: 12px;
+		line-height: 20px;
+	}
+}

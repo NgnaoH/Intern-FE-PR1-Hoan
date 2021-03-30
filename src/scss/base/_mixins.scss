@@ -1,0 +1,154 @@
+@mixin Arial-font {
+  font-family: Arial !important;
+}
+
+@mixin absolute($top, $right, $bottom, $left) {
+  position: absolute;
+  @if $top != "" {
+    top: $top;
+  }
+  @if $bottom != "" {
+    bottom: $bottom;
+  }
+  @if $left != "" {
+    left: $left;
+  }
+  @if $right != "" {
+    right: $right;
+  }
+}
+
+@mixin flex($dir, $jus, $ali) {
+  display: flex;
+  @if $dir != "" {
+    flex-direction: $dir;
+  }
+  @if $jus != "" {
+    justify-content: $jus;
+  }
+  @if $ali != "" {
+    align-items: $ali;
+  }
+}
+
+$tablet-width: 768px;
+$desktop-width: 992;
+@mixin mobile {
+  @media (max-width: #{$tablet -width - 1px}) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin logo($color) {
+  .logo {
+    position: relative;
+    p {
+      position: absolute;
+      bottom: 0;
+      left: 2%;
+      color: $color;
+      font-size: 100%;
+      letter-spacing: 2px;
+      line-height: 26px;
+      font-weight: 300;
+    }
+  }
+}
+
+@mixin link($color: var(--white-100), $colorhover: var(--white-100)) {
+  .link {
+    cursor: pointer;
+    color: $color;
+    text-decoration: none;
+    &:hover {
+      color: $colorhover;
+    }
+  }
+}
+
+
+@mixin list(
+  $w: 40px,
+  $h: 32px,
+  $bhover: var(--dark-300),
+  $ihover: var(--grey-300)
+) {
+  .list {
+    @include flex("", "", center);
+    .item {
+      cursor: pointer;
+      width: $w;
+      height: $h;
+      @include flex("", center, center);
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        background: $bhover;
+        color: $ihover;
+        i {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+
+@mixin search($width: 200px, $height: 40px, $boder-radius: 0, $bg-btn: var(--white-100), $zindex-search: 1, $bg-after:  var(--white-400)) {
+  .search-box {
+    position: relative;
+    width: $width;
+    height: $height;
+    .search {
+      height: 100%;
+      width: 100%;
+      border-radius: $boder-radius;
+      padding-left: 16px;
+      font-size: 12px;
+    }
+    .btn-search {
+      @include absolute(0, 0, "", "");
+      height: 100%;
+      z-index: $zindex-search;
+      width: $height;
+      border-radius: $boder-radius;
+      background: $bg-btn;
+      &:after {
+        @include absolute(50%, "", "", -10px);
+        content: "";
+        transform: translateY(-50%);
+        width: 1px;
+        height: 24px;
+        background: $bg-after;
+      }
+    }
+  }
+}
+
+@mixin dropdown {
+  .dropdown {
+    position: relative;
+    &__menu {
+      @include absolute(100%, "", "", 0);
+      visibility: hidden;
+      z-index: 100;
+      color: var(--white-100);
+    }
+    &__item {
+      padding: 18px;
+      width: 200%;
+      background: var(--green-100);
+      &:hover {
+        background: var(--green-300);
+      }
+    }
+    &:hover {
+      .dropdown__menu {
+        visibility: visible;
+      }
+    }
+  }
+}
